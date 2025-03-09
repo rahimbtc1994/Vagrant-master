@@ -37,5 +37,29 @@ sudo yum makecache
 # Update yum packages
 echo "Updating yum packages..."
 
+# Update yum packages
+echo "Updating yum packages..."
 sudo yum update -y
+
+# Install Apache (httpd)
+echo "Installing Apache (httpd)..."
 sudo yum install -y httpd
+
+# Start Apache service
+echo "Starting Apache..."
+sudo systemctl start httpd
+
+# Enable Apache to start on boot
+echo "Enabling Apache to start on boot..."
+sudo systemctl enable httpd
+
+# Create a simple webpage
+echo "Creating index.html..."
+echo "<h1>Welcome to My Vagrant Apache Server!</h1>" > /var/www/html/index.html
+
+# Restart Apache to apply changes
+echo "Restarting Apache..."
+sudo systemctl restart httpd
+
+echo "Provisioning complete!"
+
